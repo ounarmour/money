@@ -32,7 +32,7 @@ public class Record {
       obj.addProperty("date", (new SimpleDateFormat("MM/dd/yyyy")).format(tx.getDate()));
       obj.addProperty("amount", tx.getAmount());
       obj.addProperty("description", tx.getDescription());
-      obj.addProperty("account", tx.getAccount());
+      obj.addProperty("accountNumber", tx.getAccountNumber());
       return obj;
     }
   }
@@ -49,7 +49,7 @@ public class Record {
 				System.out.println("ERROR: Failed to parse date during deserialization. [JsonObject: " + job.toString() + "]");
 				System.exit(-1);
 			}
-      Transaction tx = new Transaction(date, job.get("amount").getAsDouble(), job.get("description").getAsString(), job.get("account").getAsString());
+      Transaction tx = new Transaction(date, job.get("amount").getAsDouble(), job.get("description").getAsString(), job.get("accountNumber").getAsString());
       return tx;
     }
   }

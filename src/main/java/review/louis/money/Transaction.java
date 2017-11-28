@@ -9,12 +9,25 @@ public class Transaction {
   private Double amount;
   private String description;
   private String account;
+  private String bankName;
+  private String accountNumber;
 
   public Transaction(Date date, Double amount, String description, String account) {
     this.date = date;
     this.amount = amount;
     this.description = description;
     this.account = account;  // wf_12340000001020
+
+    String[] arr = account.split("\\_");
+    this.accountNumber = arr[1]; // 12340000001020
+    if ("wf".equals(arr[0])) {
+      this.bankName = "Wells Fargo";
+    } else if ("us".equals(arr[0])) {
+      this.bankName = "USAA";
+    } else {
+      this.bankName = "Unknown";
+    }
+
   }
 
   public Date getDate() {
@@ -29,8 +42,12 @@ public class Transaction {
     return description;
   }
 
-  public String getAccount() {
-    return account;
+  public String getAccountNumber() {
+    return accountNumber;
+  }
+
+  public String getBankName() {
+    return bankName;
   }
 
   public String toString() {
