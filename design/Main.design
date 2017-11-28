@@ -1,0 +1,28 @@
+review.louis.money.Main
+
+This must read in a csv file of transactions taken from wellsfargo.com > account X > Download Account Activity
+The csv file contains the following data fields:
+- date
+- amount
+- uninteresting field ("*")
+- uninteresting field ("")
+- description
+
+For example:
+"10/31/2017","-6.55","*","","PANDA EXPRESS #2412 FORT COLLINS CO"
+
+There will be a separate transaction class that contains the following fields:
+- date (req)
+- amount (req)
+- description (req)
+- account (req) - this will be taken from the file name (e.g. "wf_123400001010.csv")
+- category (opt)
+
+MongoDB
+Database: money
+- Collection: transactions
+- Collection: accounts
+
+Features for future:
+1) need a way to track payments
+2) need a way to visualize all recurring payments and their due dates, payment status, confirmation numbers, etc.
