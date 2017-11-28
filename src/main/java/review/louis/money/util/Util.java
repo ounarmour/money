@@ -32,7 +32,7 @@ public class Util {
 				// we've hit the end of the data.  There may be some blank lines.
 				break;
 			}
-      line = line.replace("\",\"", "\"|\"");
+			line = line.replace("\",\"", "\"|\"");
 			line = line.replace("\"", "");
 			// TODO (future) - validate line format before splitting into String[]
 
